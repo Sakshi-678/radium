@@ -1,5 +1,5 @@
 const bookModel1 = require("../models/bookmodel1.js")
-const authorModel = require("../models/authorModel.js");
+const authorModel = require("../models/authorModel.js")
 
 
 
