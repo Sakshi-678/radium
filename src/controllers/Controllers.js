@@ -43,9 +43,17 @@ const getbook= async function (req, res){
  }
 
 
+ 
+//  const basicroute= async function (req,res){
+//      console.log()
+//      res.send()
+//  }
+
+
 
 module.exports.createbook2= createbook2
 module.exports.createauthor2= createauthor2
 module.exports.getallbook= getallbook
 module.exports.publisher= publisher
 module.exports.getbook= getbook
+//module.exports.basicroute= basicroute
