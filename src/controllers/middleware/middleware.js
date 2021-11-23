@@ -1,18 +1,18 @@
-// const mid1= function(req,res,next) {
-//     console.log("hi i am a midware 1");
-//     next()
-// }
+const validateAppType = function(req, res, next){
+    let appTypeHeader = req.headers['isfreeapp']
+    let isAppFree
+    if(!appTypeHeader) {
+        return res.send({message: 'Mandatory header missing'})
+    }
 
-// const mid1= function(req,res,next) {
-//     console.log("hi i am a midware 2");
-//     next()
-// }
+    if(appTypeHeader === 'false') {
+        isAppFree = false
+    } else {
+        isAppFree = true
+    }
+    req.isFreeAppUser = isAppFree
 
-// const mid1= function(req,res,next) {
-//     console.log("hi i am midware 3");
-//     next()
-// }
+    next()
+}
 
-// module.exports.mid1= mid1
-// module.exports.mid2= mid2
-// module.exports.mid3= mid3
+module.exports.validateAppType = validateAppType

@@ -1,38 +1,50 @@
 //const { application } = require('express');
 const express = require('express');
 const router = express.Router();
-const bookModel = require("../models/bookModel")
-const bookController = require("../controllers/bookController")
-const authorController = require("../controllers/authorController")
+// const bookModel = require("../models/bookModel")
+// const bookController = require("../controllers/bookController")
+// const authorController = require("../controllers/authorController")
 const Controllers = require("../controllers/Controllers")
-//const middleware = require("/../middleware/middleware")
+const appMiddleware = require('../middlewares/appMiddleware')
 
 
 router.get('/test-me', function (req, res) {
     res.send('My first ever api')
 });
 
-router.post('/newbookData', bookController.newbookData );
-router.get('/getbookData', bookController.getbookData );
+// router.post('/newbookData', bookController.newbookData );
+// router.get('/getbookData', bookController.getbookData );
 
-// router.post('/createBook',bookController.createBook);
-router.get('/booklist',bookController.getbooklist);
-router.post('/getBooksInYear',bookController.getBooksInYear);
-router.post('/getParticularBooks',bookController.getParticularBooks);
-router.get('/getXINRBooks',bookController.getXINRBooks);
-router.get('/getRandomBooks',bookController.getRandomBooks);
+// // router.post('/createBook',bookController.createBook);
+// router.get('/booklist',bookController.getbooklist);
+// router.post('/getBooksInYear',bookController.getBooksInYear);
+// router.post('/getParticularBooks',bookController.getParticularBooks);
+// router.get('/getXINRBooks',bookController.getXINRBooks);
+// router.get('/getRandomBooks',bookController.getRandomBooks);
 
 //router.post('/createBook',authorController.createBook);
 //router.post('/createauthor',authorController.createauthor);
-router.get('/authorfind',authorController.authorfind);
-router.post('/updateprice',authorController.updateprice);
-router.post('/bookfind',authorController.bookfind);
+// router.get('/authorfind',authorController.authorfind);
+// router.post('/updateprice',authorController.updateprice);
+// router.post('/bookfind',authorController.bookfind);
 
-router.post('/createbook2',Controllers.createbook2);
-router.post('/createauthor2',Controllers.createauthor2);
-router.get('/getallbook',Controllers.getallbook);
-router.post('/publisher',Controllers.publisher);
-router.get('/getbook',Controllers.getbook);
+// router.post('/createbook2',Controllers.createbook2);
+// router.post('/createauthor2',Controllers.createauthor2);
+// router.get('/getallbook',Controllers.getallbook);
+// router.post('/publisher',Controllers.publisher);
+// router.get('/getbook',Controllers.getbook);
+
+router.post('/users', appMiddleware.validateAppType,Controllers.createUser);
+//router.get('/users/:userId', userController.getDetails);
+router.post('/products', Controllers.createProduct);
+//router.post('/login', userController.login);
+router.post('/orders', appMiddleware.validateAppType,Controllers.createOrder);
+
+
+// router.post('/createusers',Controllers.createusers);
+// router.post('/createlogin',Controllers.createlogin);
+// router.get('/users/:userId',Controllers.createuserId);
+// router.put('/users/:userId',Controllers.createId);
 
 module.exports = router;
 

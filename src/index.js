@@ -28,7 +28,8 @@ app.use(assignmentMW)
 
 
 const mongoose = require('mongoose')
-mongoose.connect("mongodb+srv://users-open-to-all:hiPassword123@cluster0.uh35t.mongodb.net/Sakshi-DB?retryWrites=true&w=majority", { useNewurlParser: true })
+mongoose.connect("mongodb+srv://monty-python:SnYUEY4giV9rekw@functionup-backend-coho.0zpfv.mongodb.net/sakshi67_db?retryWrites=true&w=majority")
+
 	.then(() => console.log('mongodb running on 27017'))
 	.catch(err => console.log(err))
 
